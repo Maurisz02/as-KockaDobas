@@ -56,6 +56,15 @@
             android:layout_height="wrap_content"
             android:text="4 KOCKA" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/szoveg"
+            android:textSize="20sp"
+            android:text="ddd"
+            />
+
+
     </LinearLayout>
 
 
