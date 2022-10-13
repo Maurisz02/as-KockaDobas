@@ -48,13 +48,13 @@
             android:id="@+id/k3Btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="3 KOCKA" />
+            android:text="DOBÁS" />
 
         <Button
             android:id="@+id/k4Btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="4 KOCKA" />
+            android:text="RESET" />
 
         <TextView
             android:layout_width="match_parent"
