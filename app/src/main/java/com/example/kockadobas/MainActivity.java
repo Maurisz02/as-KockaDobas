@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         addListener();
     }
 
-    private void addListener(){
+    private void addListener() {
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,13 +53,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 rnd = new Random();
-                dobas1 = rnd.nextInt(6)+1;
-                dobas2 = rnd.nextInt(6)+1;
+                dobas1 = rnd.nextInt(6) + 1;
+                dobas2 = rnd.nextInt(6) + 1;
 
-                if (kocka2.getVisibility() == View.GONE){
-                    szoveg.append(String.valueOf(dobas1)+"\n");
-                    switch (dobas1)
-                    {
+                if (kocka2.getVisibility() == View.GONE) {
+                    szoveg.append(String.valueOf(dobas1) + "\n");
+                    switch (dobas1) {
                         case 1:
                             kocka1.setImageResource(R.drawable.kocka1);
                             break;
@@ -79,12 +78,11 @@ public class MainActivity extends AppCompatActivity {
                             kocka1.setImageResource(R.drawable.kocka6);
                             break;
                     }
-                }else{
-                    int ossz = dobas1+dobas2;
-                    szoveg.append(String.format("%d (%d + %d)",ossz, dobas1, dobas2)+"\n");
+                } else {
+                    int ossz = dobas1 + dobas2;
+                    szoveg.append(String.format("%d (%d + %d)", ossz, dobas1, dobas2) + "\n");
 
-                    switch (dobas1)
-                    {
+                    switch (dobas1) {
                         case 1:
                             kocka1.setImageResource(R.drawable.kocka1);
                             break;
@@ -105,8 +103,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
                     }
 
-                    switch (dobas2)
-                    {
+                    switch (dobas2) {
                         case 1:
                             kocka2.setImageResource(R.drawable.kocka1);
                             break;
@@ -133,13 +130,16 @@ public class MainActivity extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                ad.setMessage("Biztos, hogy törölni szeretnéd az eddigi dobásokat?").setTitle("Reset").setCancelable(false).setNegativeButton("Nem", new DialogInterface.OnClickListener() {
+                ad.setMessage("Biztos, hogy törölni szeretnéd az eddigi dobásokat?");
+                ad.setTitle("Reset");
+                ad.setCancelable(false);
+                ad.setNegativeButton("Nem", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        finish();
+                        dialogInterface.dismiss();
                     }
-                }).setPositiveButton("Igen", new DialogInterface.OnClickListener() {
+                });
+                ad.setPositiveButton("Igen", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         szoveg.setText("");
@@ -147,12 +147,13 @@ public class MainActivity extends AppCompatActivity {
                         kocka2.setImageResource(R.drawable.kocka1);
                     }
                 });
+                ad.create().show();
             }
         });
 
     }
 
-    private void init(){
+    private void init() {
         kocka1 = findViewById(R.id.kocka_1);
         kocka2 = findViewById(R.id.kocka_2);
         btn1 = findViewById(R.id.k1Btn);
@@ -160,6 +161,6 @@ public class MainActivity extends AppCompatActivity {
         btn3 = findViewById(R.id.k3Btn);
         btn4 = findViewById(R.id.k4Btn);
         szoveg = findViewById(R.id.szoveg);
-        ad =  new AlertDialog.Builder(MainActivity.this);
+        ad = new AlertDialog.Builder(MainActivity.this);
     }
 }
